@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`macros as a function: as a function 1`] = `
+"
+import dedent from \\"../../macro\\";
+
+dedent(\`
+  some stuff
+\`);
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"some stuff\\";
+"
+`;
+
+exports[`macros as a template string: as a template string 1`] = `
+"
+import dedent from \\"../../macro\\";
+
+dedent\`
+  some stuff
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"some stuff\\";
+"
+`;
+
+exports[`macros evaluated: evaluated 1`] = `
+"
+import dedent from \\"../../macro\\";
+import { line, second } from \\"../external\\";
+
+dedent\`
+  first \${line}
+    \${second}
+    third
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { line, second } from \\"../external\\";
+\`first \${line}
+  \${second}
+  third\`;
+"
+`;
+
+exports[`macros explicit newline: explicit newline 1`] = `
+"
+import dedent from \\"../../macro\\";
+
+dedent\`
+  <p>
+    Hello world!
+  </p>
+
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"<p>\\\\n  Hello world!\\\\n</p>\\";
+"
+`;
+
+exports[`macros explicit newlines: explicit newlines 1`] = `
+"
+import dedent from \\"../../macro\\";
+
+dedent\`
+  \\\\n<p>
+    Hello world!
+  </p>\\\\n
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"\\\\n<p>\\\\n  Hello world!\\\\n</p>\\\\n\\";
+"
+`;
+
+exports[`macros expressions: expressions 1`] = `
+"
+import dedent from \\"../../macro\\";
+
+dedent\`
+  first line
+    second
+    third
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"first line\\\\n  second\\\\n  third\\";
+"
+`;
+
+exports[`macros multiple indentations: multiple indentations 1`] = `
+"
+import dedent from \\"../../macro\\";
+
+dedent\`
+    first
+      second
+          third
+\`;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\\"first\\\\n  second\\\\n      third\\";
+"
+`;

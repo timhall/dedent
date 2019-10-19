@@ -1,5 +1,5 @@
-import pluginTester from "babel-plugin-tester";
-import plugin from "babel-plugin-macros";
+import plugin from 'babel-plugin-macros';
+import pluginTester from 'babel-plugin-tester';
 
 pluginTester({
   plugin,
@@ -7,9 +7,9 @@ pluginTester({
   babelOptions: { filename: __filename },
   tests: [
     {
-      title: "as a function",
+      title: 'as a function',
       code: `
-        import dedent from "../macro";
+        import dedent from "../../macro";
 
         dedent(\`
           some stuff
@@ -17,9 +17,9 @@ pluginTester({
       `
     },
     {
-      title: "as a template string",
+      title: 'as a template string',
       code: `
-        import dedent from "../macro";
+        import dedent from "../../macro";
 
         dedent\`
           some stuff
@@ -27,9 +27,9 @@ pluginTester({
       `
     },
     {
-      title: "explicit newline",
+      title: 'explicit newline',
       code: `
-        import dedent from "../macro";
+        import dedent from "../../macro";
 
         dedent\`
           <p>
@@ -39,9 +39,9 @@ pluginTester({
       `
     },
     {
-      title: "multiple indentations",
+      title: 'multiple indentations',
       code: `
-        import dedent from "../macro";
+        import dedent from "../../macro";
 
         dedent\`
             first
@@ -51,9 +51,9 @@ pluginTester({
       `
     },
     {
-      title: "explicit newlines",
+      title: 'explicit newlines',
       code: `
-        import dedent from "../macro";
+        import dedent from "../../macro";
 
         dedent\`
           \\n<p>
@@ -63,21 +63,21 @@ pluginTester({
       `
     },
     {
-      title: "expressions",
+      title: 'expressions',
       code: `
-        import dedent from "../macro";
+        import dedent from "../../macro";
 
         dedent\`
-          first ${"line"}
-            ${"second"}
+          first ${'line'}
+            ${'second'}
             third
         \`;
       `
     },
     {
-      title: "evaluated",
+      title: 'evaluated',
       code: `
-        import dedent from "../macro";
+        import dedent from "../../macro";
         import { line, second } from "../external";
 
         dedent\`

@@ -21,14 +21,13 @@
   "module": "dist/dedent.es.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "jest"
+    "pretest": "yarn build",
+    "test": "jest",
+    "preversion": "yarn test",
+    "postversion": "yarn build"
   },
   "dependencies": {
-    "@types/jest": "^24.0.19",
-    "babel-plugin-macros": "^2.0.0",
-    "rollup-plugin-dts": "^1.1.10",
-    "rollup-plugin-typescript": "^1.0.1",
-    "ts-jest": "^24.1.0"
+    "babel-plugin-macros": "^2.0.0"
   },
   "peerDependencies": {
     "@babel/core": "^7"
@@ -36,16 +35,20 @@
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/types": "^7.6.3",
+    "@types/jest": "^24.0.19",
     "babel-plugin-tester": "^7.0.1",
     "jest": "^24.9.0",
     "rollup": "^1.25.0",
+    "rollup-plugin-dts": "^1.1.10",
     "rollup-plugin-filesize": "^6.2.1",
     "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-typescript": "^1.0.1",
+    "ts-jest": "^24.1.0",
     "tslib": "^1.10.0",
     "typescript": "^3.6.4"
   },
   "files": [
-    "dist/dedent.js",
+    "dist",
     "macro.js"
   ],
   "prettier": {

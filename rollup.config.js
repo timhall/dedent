@@ -1,9 +1,6 @@
-import dts from 'rollup-plugin-dts';
+import typescript from '@rollup/plugin-typescript';
 import filesize from 'rollup-plugin-filesize';
 import { terser } from 'rollup-plugin-terser';
-import typescript from 'rollup-plugin-typescript';
-
-// I Love You
 
 export default [
   {
@@ -44,13 +41,5 @@ export default [
     },
     external: ['@babel/types', 'babel-plugin-macros'],
     plugins: [typescript(), filesize()]
-  },
-  {
-    input: 'src/index.ts',
-    output: {
-      format: 'es',
-      file: 'dist/dedent.d.ts'
-    },
-    plugins: [dts()]
   }
 ];

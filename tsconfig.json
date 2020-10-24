@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "strict": true,
-    "target": "es2015",
+    "target": "es2019",
+    "lib": ["es2020"],
     "moduleResolution": "node",
-    "lib": ["es2015"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "noEmit": true

@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`macros as a function: as a function 1`] = `
-"
-import dedent from \\"../../macro\\";
+exports[`unknown plugin as a function: as a function 1`] = `
+
+import dedent from "../../macro";
 
 dedent(\`
   some stuff
@@ -10,13 +10,14 @@ dedent(\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"some stuff\\";
-"
+'some stuff';
+
+
 `;
 
-exports[`macros as a template string: as a template string 1`] = `
-"
-import dedent from \\"../../macro\\";
+exports[`unknown plugin as a template string: as a template string 1`] = `
+
+import dedent from "../../macro";
 
 dedent\`
   some stuff
@@ -24,14 +25,15 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"some stuff\\";
-"
+'some stuff';
+
+
 `;
 
-exports[`macros evaluated: evaluated 1`] = `
-"
-import dedent from \\"../../macro\\";
-import { line, second } from \\"../external\\";
+exports[`unknown plugin evaluated: evaluated 1`] = `
+
+import dedent from "../../macro";
+import { line, second } from "../external";
 
 dedent\`
   first \${line}
@@ -41,16 +43,17 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-import { line, second } from \\"../external\\";
+import { line, second } from '../external';
 \`first \${line}
   \${second}
   third\`;
-"
+
+
 `;
 
-exports[`macros explicit newline: explicit newline 1`] = `
-"
-import dedent from \\"../../macro\\";
+exports[`unknown plugin explicit newline: explicit newline 1`] = `
+
+import dedent from "../../macro";
 
 dedent\`
   <p>
@@ -61,29 +64,31 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"<p>\\\\n  Hello world!\\\\n</p>\\";
-"
+'<p>\\n  Hello world!\\n</p>';
+
+
 `;
 
-exports[`macros explicit newlines: explicit newlines 1`] = `
-"
-import dedent from \\"../../macro\\";
+exports[`unknown plugin explicit newlines: explicit newlines 1`] = `
+
+import dedent from "../../macro";
 
 dedent\`
-  \\\\n<p>
+  \\n<p>
     Hello world!
-  </p>\\\\n
+  </p>\\n
 \`;
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"\\\\n<p>\\\\n  Hello world!\\\\n</p>\\\\n\\";
-"
+'\\n<p>\\n  Hello world!\\n</p>\\n';
+
+
 `;
 
-exports[`macros expressions: expressions 1`] = `
-"
-import dedent from \\"../../macro\\";
+exports[`unknown plugin expressions: expressions 1`] = `
+
+import dedent from "../../macro";
 
 dedent\`
   first line
@@ -93,13 +98,14 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"first line\\\\n  second\\\\n  third\\";
-"
+'first line\\n  second\\n  third';
+
+
 `;
 
-exports[`macros multiple indentations: multiple indentations 1`] = `
-"
-import dedent from \\"../../macro\\";
+exports[`unknown plugin multiple indentations: multiple indentations 1`] = `
+
+import dedent from "../../macro";
 
 dedent\`
     first
@@ -109,6 +115,7 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"first\\\\n  second\\\\n      third\\";
-"
+'first\\n  second\\n      third';
+
+
 `;

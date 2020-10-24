@@ -8,9 +8,9 @@ export default [
     output: {
       format: 'es',
       file: 'dist/dedent.es.js',
-      sourcemap: true
+      sourcemap: true,
     },
-    plugins: [typescript(), filesize()]
+    plugins: [typescript(), filesize()],
   },
   {
     input: 'src/index.ts',
@@ -18,9 +18,9 @@ export default [
       format: 'umd',
       file: 'dist/dedent.js',
       name: 'dedent',
-      sourcemap: true
+      sourcemap: true,
     },
-    plugins: [typescript(), filesize()]
+    plugins: [typescript(), filesize()],
   },
   {
     input: 'src/index.ts',
@@ -28,18 +28,19 @@ export default [
       format: 'umd',
       file: 'dist/dedent.min.js',
       name: 'dedent',
-      sourcemap: true
+      sourcemap: true,
     },
-    plugins: [typescript(), terser(), filesize()]
+    plugins: [typescript(), terser(), filesize()],
   },
   {
     input: 'src/macro.ts',
     output: {
       format: 'cjs',
       file: 'dist/macro.js',
-      sourcemap: true
+      sourcemap: true,
+      exports: 'auto',
     },
     external: ['@babel/types', 'babel-plugin-macros'],
-    plugins: [typescript(), filesize()]
-  }
+    plugins: [typescript(), filesize()],
+  },
 ];

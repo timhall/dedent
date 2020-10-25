@@ -22,10 +22,10 @@
   "types": "dedent.d.ts",
   "scripts": {
     "build": "rollup -c",
-    "pretest": "yarn build",
+    "pretest": "npm run build",
     "test": "jest",
-    "preversion": "yarn test && package-check",
-    "postversion": "yarn build"
+    "preversion": "npm test && package-check",
+    "postversion": "npm run build"
   },
   "dependencies": {
     "babel-plugin-macros": "^2.8.0"

@@ -1,10 +1,9 @@
-interface TemplateStringsArray {
+interface LikeTemplateStringsArray {
   raw: readonly string[];
-  [key: string]: any;
 }
 
 export default function dedent(
-  strings: string | string[] | TemplateStringsArray,
+  strings: string | string[] | LikeTemplateStringsArray | TemplateStringsArray,
   ...values: string[]
 ): string {
   const raw =
@@ -14,31 +13,43 @@ export default function dedent(
       ? strings.raw
       : strings;
 
-  // Combine strings and values
-  let combined = raw.reduce((memo, part, index) => {
-    memo += pipeline(part, unescapeBackticks, joinSuppressedNewline);
-    if (index < values.length) memo += values[index];
+  // Handle template string formatting (backticks, \ line endings)
+  const formatted = raw.map((part) => pipeline(part, unescapeBackticks, joinSuppressedNewline));
+
+  // Find minimum indentation of template strings
+  const groupedLines = formatted.map((part) => part.split(/\r?\n/));
+  const minimumIndentation = Math.min(
+    ...flat(groupedLines).map((line, index) => {
+      const leadingSpaces = line.match(/^(\s+)\S+/);
+      return leadingSpaces ? leadingSpaces[1].length : Infinity;
+    })
+  );
+  const shouldDedent = minimumIndentation > 0 && minimumIndentation < Infinity;
+
+  const combined = groupedLines.reduce((memo, lines, groupIndex) => {
+    const unindented = lines
+      .map((line, lineIndex) => {
+        // First line may be unindented, still may unindent remaining
+        const isFirstLine = groupIndex === 0 && lineIndex === 0;
+        const hasLeadingSpaces = !!line.match(/^(\s+)\S+/);
+        const isUnindented = isFirstLine && !hasLeadingSpaces;
+
+        return shouldDedent && !isUnindented ? line.slice(minimumIndentation) : line;
+      })
+      .join('\n');
+
+    memo += unindented;
+    if (groupIndex < values.length) memo += values[groupIndex];
 
     return memo;
   }, '');
 
-  // Determine minimum indentation
-  const lines = combined.split('\n');
-  const indentation = Math.min(
-    ...lines.map(line => {
-      const leading_spaces = line.match(/^(\s+)\S+/);
-      return leading_spaces ? leading_spaces[1].length : Infinity;
-    })
-  );
-
-  if (indentation > 0 && indentation < Infinity) {
-    combined = lines.map(line => line.slice(indentation)).join('\n');
-  }
-
   return pipeline(combined, trim, unescapeNewlines);
 }
 
-function isTemplateStringsArray(value: any): value is TemplateStringsArray {
+function isTemplateStringsArray(
+  value: any
+): value is LikeTemplateStringsArray | TemplateStringsArray {
   return value && Array.isArray(value.raw);
 }
 
@@ -60,4 +71,8 @@ function unescapeNewlines(value: string): string {
 
 function pipeline<TValue>(value: TValue, ...functions: Array<(value: TValue) => TValue>): TValue {
   return functions.reduce((value, fn) => fn(value), value);
+}
+
+function flat<TValue = unknown>(values: Array<TValue[]>): TValue[] {
+  return values.reduce((memo, items) => memo.concat(items), []);
 }

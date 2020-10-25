@@ -1,58 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`dedent can be used as a function 1`] = `"A test argument."`;
+exports[`can be used as a function 1`] = `"A test argument."`;
 
-exports[`dedent doesn't strip exlicit newlines 1`] = `
+exports[`does not dedent inside of interpolated values 1`] = `
+"Not dedented:
+a
+b
+c"
+`;
+
+exports[`doesn't strip exlicit newlines 1`] = `
 "<p>Hello world!</p>
 "
 `;
 
-exports[`dedent doesn't strip exlicit newlines with mindent 1`] = `
+exports[`doesn't strip exlicit newlines with mindent 1`] = `
 "<p>
   Hello world!
 </p>
 "
 `;
 
-exports[`dedent escapes backticks 1`] = `"\`"`;
+exports[`escapes backticks 1`] = `"\`"`;
 
-exports[`dedent single line input works with single line and closing backtick on newline 1`] = `"A single line of input."`;
+exports[`single line input works with single line and closing backtick on newline 1`] = `"A single line of input."`;
 
-exports[`dedent single line input works with single line and inline closing backtick 1`] = `"A single line of input."`;
+exports[`single line input works with single line and inline closing backtick 1`] = `"A single line of input."`;
 
-exports[`dedent single line input works with single line input 1`] = `"A single line of input."`;
+exports[`single line input works with single line input 1`] = `"A single line of input."`;
 
-exports[`dedent works with blank first line 1`] = `
+exports[`works with blank first line 1`] = `
 "Some text that I might want to indent:
   * reasons
   * fun
 That's all."
 `;
 
-exports[`dedent works with interpolation 1`] = `
-"e
+exports[`works with interpolation 1`] = `
+"first line
 second
 third"
 `;
 
-exports[`dedent works with multiple blank first lines 1`] = `
+exports[`works with multiple blank first lines 1`] = `
 "first
 second
 third"
 `;
 
-exports[`dedent works with removing same number of spaces 1`] = `
+exports[`works with removing same number of spaces 1`] = `
 "first
-   second
+  second
       third"
 `;
 
-exports[`dedent works with suppressed newlines 1`] = `
-"ond
+exports[`works with suppressed newlines 1`] = `
+"first second
 third"
 `;
 
-exports[`dedent works without interpolation 1`] = `
-"second
+exports[`works without interpolation 1`] = `
+"first
+second
 third"
 `;

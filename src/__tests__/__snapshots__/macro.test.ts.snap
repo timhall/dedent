@@ -10,7 +10,7 @@ dedent(\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-'some stuff';
+"some stuff";
 
 
 `;
@@ -25,7 +25,7 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-'some stuff';
+"some stuff";
 
 
 `;
@@ -43,7 +43,7 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-import { line, second } from '../external';
+import { line, second } from "../external";
 \`first \${line}
   \${second}
   third\`;
@@ -64,7 +64,7 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-'<p>\\n  Hello world!\\n</p>';
+"<p>\\n  Hello world!\\n</p>";
 
 
 `;
@@ -81,7 +81,7 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-'\\n<p>\\n  Hello world!\\n</p>\\n';
+"\\n<p>\\n  Hello world!\\n</p>\\n";
 
 
 `;
@@ -98,7 +98,7 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-'first line\\n  second\\n  third';
+"first line\\n  second\\n  third";
 
 
 `;
@@ -115,7 +115,7 @@ dedent\`
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-'first\\n  second\\n      third';
+"first\\n  second\\n      third";
 
 
 `;

@@ -2,33 +2,33 @@ import plugin from 'babel-plugin-macros';
 import pluginTester from 'babel-plugin-tester';
 
 pluginTester({
-  plugin,
-  snapshot: true,
-  babelOptions: { filename: __filename },
-  tests: [
-    {
-      title: 'as a function',
-      code: `
+	plugin,
+	snapshot: true,
+	babelOptions: { filename: __filename },
+	tests: [
+		{
+			title: 'as a function',
+			code: `
         import dedent from "../../macro";
 
         dedent(\`
           some stuff
         \`);
-      `
-    },
-    {
-      title: 'as a template string',
-      code: `
+      `,
+		},
+		{
+			title: 'as a template string',
+			code: `
         import dedent from "../../macro";
 
         dedent\`
           some stuff
         \`;
-      `
-    },
-    {
-      title: 'explicit newline',
-      code: `
+      `,
+		},
+		{
+			title: 'explicit newline',
+			code: `
         import dedent from "../../macro";
 
         dedent\`
@@ -36,11 +36,11 @@ pluginTester({
             Hello world!
           </p>\n
         \`;
-      `
-    },
-    {
-      title: 'multiple indentations',
-      code: `
+      `,
+		},
+		{
+			title: 'multiple indentations',
+			code: `
         import dedent from "../../macro";
 
         dedent\`
@@ -48,11 +48,11 @@ pluginTester({
               second
                   third
         \`;
-      `
-    },
-    {
-      title: 'explicit newlines',
-      code: `
+      `,
+		},
+		{
+			title: 'explicit newlines',
+			code: `
         import dedent from "../../macro";
 
         dedent\`
@@ -60,11 +60,11 @@ pluginTester({
             Hello world!
           </p>\\n
         \`;
-      `
-    },
-    {
-      title: 'expressions',
-      code: `
+      `,
+		},
+		{
+			title: 'expressions',
+			code: `
         import dedent from "../../macro";
 
         dedent\`
@@ -72,11 +72,11 @@ pluginTester({
             ${'second'}
             third
         \`;
-      `
-    },
-    {
-      title: 'evaluated',
-      code: `
+      `,
+		},
+		{
+			title: 'evaluated',
+			code: `
         import dedent from "../../macro";
         import { line, second } from "../external";
 
@@ -85,7 +85,7 @@ pluginTester({
             \${second}
             third
         \`;
-      `
-    }
-  ]
+      `,
+		},
+	],
 });

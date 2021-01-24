@@ -1,69 +1,66 @@
 {
-  "name": "@timhall/dedent",
-  "version": "0.9.0",
-  "author": "Desmond Brand <dmnd@desmondbrand.com> (http://desmondbrand.com)",
-  "license": "MIT",
-  "contributors": [
-    "Tim Hall <tim.hall.engr@gmail.com"
-  ],
-  "description": "Remove extra indentation from template strings",
-  "repository": "https://github.com/timhall/dedent.git",
-  "homepage": "https://github.com/timhall/dedent",
-  "bugs": "https://github.com/timhall/dedent/issues",
-  "keywords": [
-    "dedent",
-    "indent",
-    "template",
-    "strings"
-  ],
-  "main": "dist/dedent.js",
-  "browser": "dist/dedent.min.js",
-  "module": "dist/dedent.es.js",
-  "types": "dedent.d.ts",
-  "scripts": {
-    "build": "rollup -c",
-    "pretest": "npm run build",
-    "test": "jest",
-    "preversion": "npm test && package-check",
-    "postversion": "npm run build"
-  },
-  "dependencies": {
-    "babel-plugin-macros": "^2.8.0"
-  },
-  "peerDependencies": {
-    "@babel/core": "^7"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/types": "^7.12.1",
-    "@rollup/plugin-typescript": "^6.0.0",
-    "@skypack/package-check": "^0.2.2",
-    "@types/jest": "^24.9.1",
-    "babel-plugin-tester": "^10.0.0",
-    "jest": "^26.6.1",
-    "prettier": "^2.1.2",
-    "rollup": "^2.32.1",
-    "rollup-plugin-filesize": "^9.0.2",
-    "rollup-plugin-terser": "^7.0.2",
-    "ts-jest": "^26.4.2",
-    "tslib": "^2.0.3",
-    "typescript": "^3.9.7"
-  },
-  "files": [
-    "dist",
-    "macro.js",
-    "dedent.d.ts"
-  ],
-  "exports": {
-    ".": {
-      "import": "./dist/dedent.es.js"
-    },
-    "./macro": {
-      "import": "./macro.js"
-    }
-  },
-  "prettier": {
-    "singleQuote": true,
-    "printWidth": 100
-  }
+	"name": "@timhall/dedent",
+	"version": "0.9.0",
+	"author": "Desmond Brand <dmnd@desmondbrand.com> (http://desmondbrand.com)",
+	"license": "MIT",
+	"contributors": [
+		"Tim Hall <tim.hall.engr@gmail.com"
+	],
+	"description": "Remove extra indentation from template strings",
+	"repository": "https://github.com/timhall/dedent.git",
+	"homepage": "https://github.com/timhall/dedent",
+	"bugs": "https://github.com/timhall/dedent/issues",
+	"keywords": [
+		"dedent",
+		"indent",
+		"template",
+		"strings"
+	],
+	"main": "dist/dedent.js",
+	"browser": "dist/dedent.min.js",
+	"module": "dist/dedent.es.js",
+	"types": "dedent.d.ts",
+	"scripts": {
+		"build": "rollup -c",
+		"pretest": "npm run build",
+		"test": "jest",
+		"preversion": "npm test && package-check",
+		"postversion": "npm run build",
+		"format": "prettier --write \"**/*.{ts,js}\""
+	},
+	"dependencies": {
+		"babel-plugin-macros": "^2.8.0"
+	},
+	"peerDependencies": {
+		"@babel/core": "^7"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.12.3",
+		"@babel/types": "^7.12.1",
+		"@rollup/plugin-typescript": "^8.1.0",
+		"@skypack/package-check": "^0.2.2",
+		"@types/jest": "^26.0.20",
+		"babel-plugin-tester": "^10.0.0",
+		"jest": "^26.6.3",
+		"prettier": "^2.2.1",
+		"rollup": "^2.38.0",
+		"rollup-plugin-filesize": "^9.1.0",
+		"rollup-plugin-terser": "^7.0.2",
+		"ts-jest": "^26.4.4",
+		"tslib": "^2.1.0",
+		"typescript": "^4.1.3"
+	},
+	"files": [
+		"dist",
+		"macro.js",
+		"dedent.d.ts"
+	],
+	"exports": {
+		".": {
+			"import": "./dist/dedent.es.js"
+		},
+		"./macro": {
+			"import": "./macro.js"
+		}
+	}
 }

@@ -1,31 +1,31 @@
 import dedent from '..';
 
 it('works without interpolation', () => {
-  expect(
-    dedent`first
+	expect(
+		dedent`first
         second
         third`
-  ).toMatchSnapshot();
+	).toMatchSnapshot();
 });
 
 it('works with interpolation', () => {
-  expect(
-    dedent`first ${'line'}
+	expect(
+		dedent`first ${'line'}
         ${'second'}
         third`
-  ).toMatchSnapshot();
+	).toMatchSnapshot();
 });
 
 it('works with suppressed newlines', () => {
-  expect(
-    dedent`first \
+	expect(
+		dedent`first \
         ${'second'}
         third`
-  ).toMatchSnapshot();
+	).toMatchSnapshot();
 });
 
 it('works with blank first line', () => {
-  expect(dedent`
+	expect(dedent`
     Some text that I might want to indent:
       * reasons
       * fun
@@ -34,62 +34,62 @@ it('works with blank first line', () => {
 });
 
 it('works with multiple blank first lines', () => {
-  expect(
-    dedent`
+	expect(
+		dedent`
 
         first
         second
         third`
-  ).toMatchSnapshot();
+	).toMatchSnapshot();
 });
 
 it('works with removing same number of spaces', () => {
-  expect(
-    dedent`
+	expect(
+		dedent`
         first
           second
               third
     `
-  ).toMatchSnapshot();
+	).toMatchSnapshot();
 });
 
 describe('single line input', () => {
-  it('works with single line input', () => {
-    expect(dedent`A single line of input.`).toMatchSnapshot();
-  });
+	it('works with single line input', () => {
+		expect(dedent`A single line of input.`).toMatchSnapshot();
+	});
 
-  it('works with single line and closing backtick on newline', () => {
-    expect(dedent`
+	it('works with single line and closing backtick on newline', () => {
+		expect(dedent`
       A single line of input.
     `).toMatchSnapshot();
-  });
+	});
 
-  it('works with single line and inline closing backtick', () => {
-    expect(dedent`
+	it('works with single line and inline closing backtick', () => {
+		expect(dedent`
       A single line of input.`).toMatchSnapshot();
-  });
+	});
 });
 
 it('can be used as a function', () => {
-  expect(
-    dedent(`
+	expect(
+		dedent(`
     A test argument.
   `)
-  ).toMatchSnapshot();
+	).toMatchSnapshot();
 });
 
 it('escapes backticks', () => {
-  expect(dedent`\``).toMatchSnapshot();
+	expect(dedent`\``).toMatchSnapshot();
 });
 
 it("doesn't strip exlicit newlines", () => {
-  expect(dedent`
+	expect(dedent`
     <p>Hello world!</p>\n
   `).toMatchSnapshot();
 });
 
 it("doesn't strip exlicit newlines with mindent", () => {
-  expect(dedent`
+	expect(dedent`
     <p>
       Hello world!
     </p>\n
@@ -97,8 +97,16 @@ it("doesn't strip exlicit newlines with mindent", () => {
 });
 
 it('does not dedent inside of interpolated values', () => {
-  const value = 'a\nb\nc';
-  expect(dedent`
+	const value = 'a\nb\nc';
+	expect(dedent`
     Not dedented:\n${value}
   `).toMatchSnapshot();
+});
+
+it('handles tabs', () => {
+	expect(dedent`
+				A
+
+				B ${'C'} (${'D'}:${'E'})\n\n${'F'}
+			`).toMatchSnapshot();
 });

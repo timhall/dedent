@@ -1,3 +1,3 @@
 declare module 'babel-plugin-tester' {
-  export default function pluginTester(options: any): void;
+	export default function pluginTester(options: any): void;
 }

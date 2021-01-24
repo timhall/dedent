@@ -23,6 +23,14 @@ exports[`doesn't strip exlicit newlines with mindent 1`] = `
 
 exports[`escapes backticks 1`] = `"\`"`;
 
+exports[`handles tabs 1`] = `
+"A
+
+B C (D:E)
+
+F"
+`;
+
 exports[`single line input works with single line and closing backtick on newline 1`] = `"A single line of input."`;
 
 exports[`single line input works with single line and inline closing backtick 1`] = `"A single line of input."`;
